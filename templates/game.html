@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>打卡进度</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333333;
+      margin-top: 50px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .info-item {
+      margin-right: 30px;
+    }
+
+    .notice {
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px #cccccc;
+      margin: 20px auto;
+      max-width: 500px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .notice h3 {
+      color: #333333;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .notice p {
+      color: #666666;
+      font-size: 16px;
+      line-height: 1.5em;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+        /* 样式部分保持不变 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+  </style>
+  <script>
+    function displayModal() {
+      var modal = document.getElementById('myModal');
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      var modal = document.getElementById('myModal');
+      modal.style.display = "none";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="notice">
+    <h3>公告</h3>
+    <p>本网站正在维护中，有任何问题请及时联系管理员</p>
+    <p>目前支持微信pushplus通知打卡状态请联系管理员添加token</p>
+    <button onclick="displayModal()">目前人数</button>
+  </div>
+    <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span onclick="closeModal()" style="float:right; cursor:pointer;">&times;</span>
+      <h3>上车人数</h3>
+      {% for data in data %}
+      <p>{{ data['name'] }}</p>
+      {% endfor %}
+<!--      <p>这是弹出框中的内容，您可以在这里添加任何自定义内容和样式。</p>-->
+<!--      <p>例如：表单、图像、文本等。</p>-->
+    </div>
+  </div>
+
+  <h1>扫码打赏作者</h1>
+  <img src="static\img\img.png" alt="打赏">
+
+</body>
+</html>

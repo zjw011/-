@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录页面</title>
+    <style>
+        body {
+            background-color: #D3E8D3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .warning-text {
+            color: red;
+        }
+        .login-title {
+            text-align: center;
+            color:#4CAF50;
+        }
+        .login-box {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-box input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-box input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .error-message {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+            <h1 class="login-title">职校家园全自动打卡</h1>
+
+        <div class="neu-textbox"><center><b>✅登录方式说明✅</b></center></div>
+       <p class="warning-text"><b>每个账号只能登陆一次，一定要确认好自己的账号密码哦</b></p>
+        <div class="neu-textbox"><center><b>👇请输入相关信息👇</b></center></div>
+        <form method="post" action="/">
+            <input type="text" name="username" placeholder="请输入账号(手机号/身份证)">
+            <input type="password" name="password" placeholder="请输入密码">
+            <input type="address" name="address" placeholder="请输入打卡地址">
+            <input type="beizhu" name="beizhu" placeholder="请输入备注()">
+            <input type="submit" value="登录">
+
+
+        </form>
+        <form method="get" action="/game">
+            <input type="submit" value="查看状态">
+                    </form>
+        {% if error %}
+    <p class="error-message">{{ error }}</p>
+    {% endif %}
+    </div>
+</body>
+</html>
